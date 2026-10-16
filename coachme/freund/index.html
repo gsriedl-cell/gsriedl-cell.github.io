@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Einladung zu CoachMe</title>
+<style>
+:root{--ground:#f6f3ee;--card:#fff;--ink:#1d1d1f;--muted:#6e6a64;--gold:#c9a227}
+body{margin:0;font-family:-apple-system,system-ui,sans-serif;background:var(--ground);color:var(--ink);padding:0 16px}
+main{max-width:420px;margin:48px auto;background:var(--card);border-radius:26px;padding:28px 22px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+h1{font-size:24px;margin:0 0 8px}p{color:var(--muted);line-height:1.45}
+.code{font-size:30px;font-weight:700;letter-spacing:2px;margin:14px 0;color:var(--ink)}
+a.btn,button{display:block;width:100%;box-sizing:border-box;border:0;border-radius:27px;padding:16px;font-size:17px;font-weight:600;margin-top:12px;text-decoration:none;cursor:pointer}
+a.btn{background:var(--ink);color:#fff}button{background:var(--ground);color:var(--ink)}
+small{display:block;margin-top:18px;color:var(--muted)}
+</style></head><body><main>
+<h1 id="title">Einladung zu CoachMe 🎯</h1>
+<p id="lead">Öffne die Einladung in CoachMe, dann seid ihr Freunde.</p>
+<div class="code" id="code"></div>
+<a class="btn" id="open" href="#">In CoachMe öffnen</a>
+<button id="copy" type="button">Code kopieren</button>
+<small>Noch kein CoachMe? Die App ist im Test. Bitte die Person, die dich eingeladen hat, um eine TestFlight-Einladung.</small>
+</main>
+<script>
+const q = new URLSearchParams(location.search);
+const id = (q.get("id") || "").toUpperCase(), name = q.get("name") || "";
+const pretty = id.length === 8 ? id.slice(0,4) + "-" + id.slice(4) : id;
+if (name) document.getElementById("title").textContent = name + " lädt dich zu CoachMe ein 🎯";
+document.getElementById("code").textContent = pretty;
+document.getElementById("open").href = "coachme://freund" + location.search;
+document.getElementById("copy").onclick = async () => {
+  try { await navigator.clipboard.writeText(pretty); document.getElementById("copy").textContent = "Kopiert ✓"; } catch (e) {}
+};
+</script></body></html>

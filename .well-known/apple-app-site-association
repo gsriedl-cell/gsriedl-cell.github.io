@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["V3Q769KS4Z.app.coachme.CoachMe"],
+        "components": [
+          { "/": "/coachme/freund", "comment": "Einladung zu CoachMe" },
+          { "/": "/coachme/freund/*", "comment": "Einladung zu CoachMe" }
+        ]
+      }
+    ]
+  }
+}
