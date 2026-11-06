@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Challenge in Bowdy</title>
+<meta name="robots" content="noindex">
+<style>
+:root{--ground:#f6f3ee;--card:#fff;--ink:#1d1d1f;--muted:#6e6a64;--gold:#c9a227}
+body{margin:0;font-family:-apple-system,system-ui,sans-serif;background:var(--ground);color:var(--ink);padding:0 16px}
+main{max-width:420px;margin:48px auto;background:var(--card);border-radius:26px;padding:28px 22px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+h1{font-size:24px;margin:0 0 8px}p{color:var(--muted);line-height:1.45}
+a.btn{display:block;width:100%;box-sizing:border-box;border:0;border-radius:27px;padding:16px;font-size:17px;font-weight:600;margin-top:12px;text-decoration:none;background:var(--ink);color:#fff}
+small{display:block;margin-top:18px;color:var(--muted)}
+</style></head><body><main>
+<h1 id="title">Bogen-Challenge in Bowdy 🎯</h1>
+<p>Du bist zu einer Challenge eingeladen. Öffne den Link in der Bowdy App, dann siehst du Regeln und Bestenliste und kannst mitmachen.</p>
+<a class="btn" id="open" href="#">In Bowdy öffnen</a>
+<small>Noch keine Bowdy App? Die App ist im Test. Bitte die Person, die dich eingeladen hat, um eine TestFlight-Einladung.</small>
+</main>
+<script>
+const q = new URLSearchParams(location.search);
+const title = (q.get("t") || "").slice(0, 60);
+if (title) document.getElementById("title").textContent = "„" + title + "“ in Bowdy 🎯";
+document.getElementById("open").href = "coachme://challenge" + location.search;
+</script></body></html>
